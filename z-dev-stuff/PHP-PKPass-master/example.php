@@ -3,9 +3,9 @@ require('src/PKPass.php');
 
 $pass = new PKPass\PKPass();
 
-$pass->setCertificate('Cert-viaporter-1.p12');  // 2. Set the path to your Pass Certificate (.p12 file)
+$pass->setCertificate('pass-cert.p12');  // 2. Set the path to your Pass Certificate (.p12 file)
 $pass->setCertificatePassword('Philip99');     // 2. Set password for certificate
-$pass->setWWDRcertPath('AppleWWDRCA.pem'); // 3. Set the path to your WWDR Intermediate certificate (.pem file)
+$pass->setWWDRcertPath('cert-wwdr.pem'); // 3. Set the path to your WWDR Intermediate certificate (.pem file)
 
 // Top-Level Keys http://developer.apple.com/library/ios/#documentation/userexperience/Reference/PassKit_Bundle/Chapters/TopLevel.html
 $standardKeys         = array(
@@ -57,8 +57,8 @@ $styleKeys            = array(
 $visualAppearanceKeys = array(
     'barcode'         => array(
         'format'          => 'PKBarcodeFormatAztec',
-        'message'         => '1811201424352Everson                       3   9C CWLLTRTOVIA65  201412071305Phil                P1N YTHEHQ81020141118124602ES NB'//,
-//        'messageEncoding' => 'iso-8859-1'
+        'message'         => '1811201424352Everson                       3   9C CWLLTRTOVIA65  201412071305Phil                P1N YTHEHQ81020141118124602ES NB',
+       'messageEncoding' => 'iso-8859-1'
     ),
     'backgroundColor' => 'rgb(107,156,196)',
     'logoText'        => 'Flight info'

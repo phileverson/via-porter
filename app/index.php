@@ -1,5 +1,5 @@
 <?php
-require('src/PKPass.php');
+require('PKPass.php');
 
 //$tempQ = $GET_['key'];
 
@@ -84,8 +84,8 @@ $styleKeys            = array(
 $visualAppearanceKeys = array(
     'barcode'         => array(
         'format'          => 'PKBarcodeFormatAztec',
-        'message'         =>  $rawTextParsed //=> '1811201424352Everson                       3   9C CWLLTRTOVIA65  201412071305Phil                P1N YTHEHQ81020141118124602ES NB'//,
-//        'messageEncoding' => 'iso-8859-1'
+        'message'         =>  $rawTextParsed, //=> '1811201424352Everson                       3   9C CWLLTRTOVIA65  201412071305Phil                P1N YTHEHQ81020141118124602ES NB'//,
+       'messageEncoding' => 'iso-8859-1'
     ),
     'backgroundColor' => 'rgb(107,156,196)',
     'logoText'        => 'Flight info'
