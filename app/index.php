@@ -1,7 +1,8 @@
 <?php
 require('PKPass.php');
 
-$url = 'http://zxing.org/w/decode?u=http://oi60.tinypic.com/4hval3.jpg';
+// $url = 'http://zxing.org/w/decode?u=http://oi60.tinypic.com/4hval3.jpg';
+$url = 'http://zxing.org/w/decode?u=http://picpaste.com/extpics/S9UeP4K3.png';
 
 // using file_get_contents function
 $content = file_get_contents($url);
@@ -38,31 +39,31 @@ if($rawTextParsed != null)
                 array(
                     'key'   => 'origin',
                     'label' => 'Departing',
-                    'value' => 'TORONTO'
+                    'value' => 'KITCHENER'
                 ),
                 array(
                     'key'   => 'destination',
                     'label' => 'Ariving',
-                    'value' => 'CORNWALL'
+                    'value' => 'TORONTO UNION STATION'
                 )
             ),
             'auxiliaryFields' => array(
                 array(
                     'key'   => 'depart-date-time',
                     'label' => '',
-                    'value' => '07/11/2012 10:22'
+                    'value' => '12/12/2014 21:35'
                 ),
                 array(
                     'key'   => 'arival-date-time',
                     'label' => '',
-                    'value' => '07/11/2012 10:22'
+                    'value' => '12/12/2014 23:20'
                 )
             ),
             'headerFields' => array(
                 array(
                     'key'   => 'trainNum',
                     'label' => 'Train',
-                    'value' => '48'
+                    'value' => '88'
                 )
             ),
             'backFields' => array(
