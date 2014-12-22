@@ -1,17 +1,18 @@
 <?php
 require('PKPass.php');
 
-// $url = 'http://zxing.org/w/decode?u=http://oi60.tinypic.com/4hval3.jpg';
-$url = 'http://zxing.org/w/decode?u=http://picpaste.com/extpics/S9UeP4K3.png';
+// // $url = 'http://zxing.org/w/decode?u=http://oi60.tinypic.com/4hval3.jpg';
+// $url = 'http://zxing.org/w/decode?u=http://picpaste.com/extpics/S9UeP4K3.png';
 
-// using file_get_contents function
-$content = file_get_contents($url);
+// // using file_get_contents function
+// $content = file_get_contents($url);
 
-$preParse = explode('pre',$content);
-$arrowParse = explode('>',$preParse[1]);
+// $preParse = explode('pre',$content);
+// $arrowParse = explode('>',$preParse[1]);
 
-//the content of the code that's returned from zxing.org 
-$rawTextParsed = $arrowParse[1];
+// //the content of the code that's returned from zxing.org 
+// $rawTextParsed = $arrowParse[1];
+$rawTextParsed = '1612201423137EVERSON                       4   2B KITCTRTOVIA88  201412162135PHIL                P1H YTHEOM50020141216041702EC NB';
 
 if($rawTextParsed != null)
 {
@@ -77,11 +78,12 @@ if($rawTextParsed != null)
         )
     );
     $visualAppearanceKeys = array(
-        'barcode'         => array(
-            'format'          => 'PKBarcodeFormatAztec',
-            'message'         =>  $rawTextParsed,
-            'messageEncoding' => 'iso-8859-1'
-        ),
+        // 'barcode'         => array(
+        //     'format'          => 'PKBarcodeFormatAztec',
+        //     'message'         =>  $rawTextParsed,
+        //     'messageEncoding' => 'utf-8'
+        //     // 'messageEncoding' => 'iso-8859-1'
+        // ),
         'backgroundColor' => 'rgb(89,80,81)',
         'foregroundColor' => 'rgb(255,255,255)',
         'labelColor'      => 'rgb(255,255,255)'
