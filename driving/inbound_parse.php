@@ -11,8 +11,10 @@
 // echo $inbound->FromEmail();
 
 // echo 'request bin now...';
+file_put_contents("outputfile.txt", file_get_contents("php://input"));
 
-$result = file_get_contents('http://requestb.in/1lqp0sw1');
-echo $result;
+echo 'maybe it worked?';
+// $result = file_get_contents('http://requestb.in/1lqp0sw1');
+// echo $result;
 
 ?>
