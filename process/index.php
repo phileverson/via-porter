@@ -114,9 +114,11 @@ for ($i=0; $i < ($passCount); $i++) {
           'Certificate'  => './_extras/SimonWaldherr-passkit/certs/Certificate.p12', 
           'CertPassword' => 'Philip99');
 
-    $ImageFiles = array('./_images/icon.png', 
-    './_images/icon@2x.png', 
-    './_images/logo.png',
+    // $ImageFiles = array('/process/_images/icon.png', 
+    // '/process/_images/icon@2x.png', 
+    // '/process/_images/logo.png',
+    // $tempImagePath); //this line is where we add the strip image
+        $ImageFiles = array(
     $tempImagePath); //this line is where we add the strip image
 
     $placePassPath = './_passes/' . $ourPassID . '/' . $i . '/';
