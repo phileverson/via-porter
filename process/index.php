@@ -1,4 +1,7 @@
 <?php
+
+echo 'top of file (literallty, line 3...)';
+
 //Functions that actually produce the passbook pass:
 require('./_extras/SimonWaldherr-passkit/passkit.php');
 
