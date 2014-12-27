@@ -1,4 +1,6 @@
 <?php
+phpinfo();
+
 
 echo 'top of file (literallty, line 3...)';
 
