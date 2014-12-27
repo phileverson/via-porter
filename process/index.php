@@ -8,18 +8,12 @@ require('./_extras/SimonWaldherr-passkit/passkit.php');
 //Setting the timezone
 date_default_timezone_set('UTC');
 
-echo 'after timezone';
-
 //Variables we need
 $ourPassID = 'pass-' . time().hash("CRC32", $_SERVER["REMOTE_ADDR"].$_SERVER["HTTP_USER_AGENT"]);
-
-echo 'before mkdir';
 
 //Creating and moving the pass directory
 mkdir($ourPassID, 0777, true);
 rename($ourPassID, '_passes/' . $ourPassID);
-
-echo 'after mkdir';
 
 // ----- TEMP ----- Saving the JSON
 $file = 'inbound.json'; //copying the JSON rather then saving a new file with the post data (temp)
@@ -35,6 +29,8 @@ require_once '_extras/postmark-inbound-php-master/lib/Postmark/Autoloader.php';
 $inbound = new \Postmark\Inbound(file_get_contents('_passes/' . $ourPassID . '/posthook.json'));
 $barcodes = array();
 $passCount = 0;
+
+echo 'before foreach';
 
 foreach($inbound->Attachments() as $attachment) {
     if(strpos($attachment->Name,'jpg') !== false)
