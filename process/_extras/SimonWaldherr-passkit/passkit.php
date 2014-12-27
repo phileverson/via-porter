@@ -74,7 +74,7 @@ function createPass($Certificates, $ImageFiles, $JSON, $PassName = 'pass', $Temp
     //     unlink($TempPath.$UniquePassId.'/signature');
     //     rmdir($TempPath.$UniquePassId);
     //   }
-    echo '</br> This pass is stored: <span class="pass-path">' . $PKPassPath . '</span></br>';
+    echo '</br> Download pass: <a href="' . $_SERVER["REQUEST_URI"] . substr($PKPassPath, 1) . '" class="pass-path">' . $PKPassPath . '</a></br>';
     return $Pass;
   }
 
