@@ -1,8 +1,4 @@
 <?php
-phpinfo();
-
-
-echo 'top of file (literallty, line 3...)';
 
 //Functions that actually produce the passbook pass:
 require('./_extras/SimonWaldherr-passkit/passkit.php');
@@ -32,8 +28,6 @@ echo 'after register';
 $inbound = new \Postmark\Inbound(file_get_contents('_passes/' . $ourPassID . '/posthook.json'));
 $barcodes = array();
 $passCount = 0;
-
-echo 'before foreach';
 
 foreach($inbound->Attachments() as $attachment) {
     if(strpos($attachment->Name,'jpg') !== false)
@@ -88,7 +82,6 @@ for ($i=0; $i < ($passCount); $i++) {
     echo $tempImagePath . ' - making images is done ... </br>'; 
 
 // --- START COPY OF Simon Waldherr's version of PKPASS ---
-echo 'before require';
     
 $Certificates = array('AppleWWDRCA'  => './_extras/SimonWaldherr-passkit/certs/AppleWWDRCA.pem', 
                       'Certificate'  => './_extras/SimonWaldherr-passkit/certs/Certificate.p12', 
