@@ -22,8 +22,10 @@ copy($file, $newfile);
 rename($newfile, '_passes/' . $ourPassID . '/' . $newfile);
 
 //Saving the Image
-require_once '_extras/postmark-inbound-php-master/lib/Postmark/Autoloader.php';
+require('_extras/postmark-inbound-php-master/lib/Postmark/Autoloader.php');
 \Postmark\Autoloader::register();
+
+
 
 // this file should be the target of the callback you set in your postmark account
 $inbound = new \Postmark\Inbound(file_get_contents('_passes/' . $ourPassID . '/posthook.json'));
