@@ -133,7 +133,8 @@ $JSON = '{
 
 echo '</br>about to call echoPass';
 
-echoPass(createPass($Certificates, $ImageFiles, $JSON, 'passtest', $TempPath));
+createPass($Certificates, $ImageFiles, $JSON, 'passtest', $TempPath);
+// echoPass(createPass($Certificates, $ImageFiles, $JSON, 'passtest', $TempPath));
 
 echo '</br>called echoPass';
 
