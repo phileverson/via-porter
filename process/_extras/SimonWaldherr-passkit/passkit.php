@@ -78,14 +78,14 @@ function createPass($Certificates, $ImageFiles, $JSON, $PassName = 'pass', $Temp
     return $Pass;
   }
 
-function echoPass($Pass)
-  {
-    //send http headers and zip archive content to client
-    header('Pragma: no-cache');
-    header('Content-type: application/vnd.apple.pkpass');
-    header('Content-length: '.$Pass['size']);
-    header('Content-Disposition: attachment; filename="'.$Pass['name'].'.pkpass"');
-    echo $Pass['data'];
-  }
+// function echoPass($Pass)
+//   {
+//     //send http headers and zip archive content to client
+//     header('Pragma: no-cache');
+//     header('Content-type: application/vnd.apple.pkpass');
+//     header('Content-length: '.$Pass['size']);
+//     header('Content-Disposition: attachment; filename="'.$Pass['name'].'.pkpass"');
+//     echo $Pass['data'];
+//   }
 
 ?>
