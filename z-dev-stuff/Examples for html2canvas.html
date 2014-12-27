@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://html2canvas.hertzen.com/examples.html -->
+<html ng-app="site" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title ng-bind="title" class="ng-binding">Examples for html2canvas</title>
+    <script type="text/javascript" async="" src="./Examples for html2canvas_files/ga.js"></script><script async="" src="./Examples for html2canvas_files/cloudflare.min.js"></script><script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok2v=1613a3a185/"},atok:"7053ea2a66ca8aa9c4b72475e0db9012",petok:"47e395d10d7d6e3c1844a0cd8386aac6487d6f80-1419279126-1800",zone:"hertzen.com",rocket:"0",apps:{"ga_key":{"ua":"UA-188600-10","ga_bs":"2"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="//ajax.cloudflare.com/cdn-cgi/nexp/dok2v=919620257c/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]>
+</script>
+<script src="./Examples for html2canvas_files/jquery.min.js"></script><style type="text/css">.cf-hidden { display: none; } .cf-invisible { visibility: hidden; }</style>
+    <script src="./Examples for html2canvas_files/angular.min.js"></script><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\:form{display:block;}</style>
+    <script src="./Examples for html2canvas_files/site.js"></script>
+
+    <!--<base href="">--><base href=".">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Screenshot creation with JavaScript">
+    <meta name="author" content="Niklas von Hertzen">
+
+    <link href="http://html2canvas.hertzen.com/site/css/bootstrap.min.css" rel="stylesheet">
+  <script type="text/javascript">
+/* <![CDATA[ */
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-188600-10']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+(function(b){(function(a){"__CF"in b&&"DJS"in b.__CF?b.__CF.DJS.push(a):"addEventListener"in b?b.addEventListener("load",a,!1):b.attachEvent("onload",a)})(function(){"FB"in b&&"Event"in FB&&"subscribe"in FB.Event&&(FB.Event.subscribe("edge.create",function(a){_gaq.push(["_trackSocial","facebook","like",a])}),FB.Event.subscribe("edge.remove",function(a){_gaq.push(["_trackSocial","facebook","unlike",a])}),FB.Event.subscribe("message.send",function(a){_gaq.push(["_trackSocial","facebook","send",a])}));"twttr"in b&&"events"in twttr&&"bind"in twttr.events&&twttr.events.bind("tweet",function(a){if(a){var b;if(a.target&&a.target.nodeName=="IFRAME")a:{if(a=a.target.src){a=a.split("#")[0].match(/[^?=&]+=([^&]*)?/g);b=0;for(var c;c=a[b];++b)if(c.indexOf("url")===0){b=unescape(c.split("=")[1]);break a}}b=void 0}_gaq.push(["_trackSocial","twitter","tweet",b])}})})})(window);
+/* ]]> */
+</script>
+</head>
+  <body data-twttr-rendered="true"><iframe id="twttrHubFrameSecure" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" name="twttrHubFrameSecure" src="./Examples for html2canvas_files/hub.fe4e93d64f1afc988e99833088f71057(1).html" style="position: absolute; top: -9999em; width: 10px; height: 10px;"></iframe><iframe id="twttrHubFrame" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" name="twttrHubFrame" src="./Examples for html2canvas_files/hub.fe4e93d64f1afc988e99833088f71057.html" style="position: absolute; top: -9999em; width: 10px; height: 10px;"></iframe>
+    <header ng-include="&#39;site/header.html&#39;"><style class="ng-scope">
+  header {
+    height: 50px;
+  }
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+  }
+  .share {
+    padding-top:5px;
+    margin-bottom:-5px;
+    margin-right: -50px;
+  }
+
+  .page-header, .lead {
+    color: #5A5A5A;
+  }
+  #doc-nav {
+    width: 220px;
+  }
+
+  #doc-nav .active a {
+    background-color: #08C;
+    color: #fff;
+    border-color: #08C;
+  }
+
+  html {
+    overflow-y: scroll;
+  }
+
+  .com { color: #93a1a1; }
+.lit { color: #195f91; }
+.pun, .opn, .clo { color: #93a1a1; }
+.fun { color: #dc322f; }
+.str, .atv { color: #D14; }
+.kwd, .prettyprint .tag { color: #1e347b; }
+.typ, .atn, .dec, .var { color: teal; }
+.pln { color: #48484c; }
+
+.prettyprint {
+  padding: 8px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+}
+.prettyprint.linenums {
+  -webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+     -moz-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+          box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin: 0 0 0 33px; /* IE indents via margin-left */
+}
+ol.linenums li {
+  padding-left: 12px;
+  color: #bebec5;
+  line-height: 20px;
+  text-shadow: 0 1px 0 #fff;
+}
+
+</style><span class="ng-scope">
+</span><span class="ng-scope">
+</span><div class="navbar navbar-inverse navbar-fixed-top ng-scope">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="http://html2canvas.hertzen.com/index.html">html2canvas</a>
+      <div class="nav-collapse">
+        <ul class="nav ng-scope" ng-controller="Navigation">
+          <li ng-class="active(&#39;/&#39;)" class=""><a href="http://html2canvas.hertzen.com/">Home</a></li>
+          <li ng-class="active(&#39;/documentation.html&#39;)"><a href="http://html2canvas.hertzen.com/documentation.html">Documentation</a></li>
+          <li ng-class="active(&#39;/faq.html&#39;)"><a href="http://html2canvas.hertzen.com/faq.html">FAQ</a></li>
+          <li ng-class="active(&#39;/examples.html&#39;)" class="active"><a href="./Examples for html2canvas_files/Examples for html2canvas.html">Examples</a></li>
+          <li><a href="https://github.com/niklasvh/html2canvas/releases" target="_blank">Download</a></li>
+        </ul>
+
+        <p class="navbar-text pull-right share">
+
+          <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="./Examples for html2canvas_files/tweet_button.ff7d9077a26377d36b6a53b1a95be617.en.html" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-horizontal" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 109px; height: 20px;"></iframe>
+          
+        <g:plusone size="medium" annotation="inline" href="http://html2canvas.hertzen.com" width="250"></g:plusone>
+
+        </p>
+
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div><span class="ng-scope">
+</span><a href="http://github.com/niklasvh/html2canvas" class="ng-scope"><img style="position: fixed; top: 0; right: 0; border: 0;z-index:9999;" src="./Examples for html2canvas_files/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a><span class="ng-scope">
+</span></header>
+    <div class="container" ng-view=""><div class="row-fluid ng-scope" id="docs">
+  <div class="page-header">
+    <h1>Examples</h1>
+  </div>
+
+  <p class="lead">
+    Rendering the body element and appending the canvas to the body
+  </p>
+
+  <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">html2canvas</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">  onrendered</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">);</span></li><li class="L3"><span class="pln">  </span><span class="pun">}</span></li><li class="L4"><span class="pun">});</span></li></ol></pre>
+  <p><button class="btn example1">Test on this page</button></p>
+
+  <p class="lead">
+    Rendering the body element and restrict canvas size to 300x300px
+  </p>
+
+  <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">html2canvas</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">  onrendered</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">);</span></li><li class="L3"><span class="pln">  </span><span class="pun">},</span></li><li class="L4"><span class="pln">  width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">300</span><span class="pun">,</span></li><li class="L5"><span class="pln">  height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">300</span></li><li class="L6"><span class="pun">});</span></li></ol></pre>
+  <p><button class="btn example2">Test on this page</button></p>
+
+
+  
+  
+  
+
+</div></div>
+    <footer ng-include="&#39;site/footer.html&#39;"><div class="container ng-scope">
+  <p>
+    Created by <a href="http://hertzen.com/">Niklas von Hertzen</a> <br>
+    Licensed under the <a href="http://html2canvas.hertzen.com/LICENSE">MIT License</a>. <br>
+    <iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" src="./Examples for html2canvas_files/follow_button.93c9003dd72a6cd9f4fee1e5eb3546c1.en.html" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="width: 116px; height: 20px;"></iframe>
+  </p>
+
+  
+  
+</div></footer>
+  
+<span class="_hsShareImage hsShareImage">&nbsp;</span><canvas width="1267" height="771"></canvas><canvas width="300" height="300"></canvas></body></html>

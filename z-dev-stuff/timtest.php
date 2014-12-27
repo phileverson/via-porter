@@ -1,0 +1,1 @@
+<img src="/scripts/timthumb.php?src=testimg.png&h=150&w=150&zc=1" alt="">  
