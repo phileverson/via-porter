@@ -4,12 +4,56 @@
 		"selected_items":
 		[
 			[
-				"tem",
-				"tempImagePath"
+				"via",
+				"viaRailToFrom"
+			],
+			[
+				"depart",
+				"departTime"
+			],
+			[
+				"getpas",
+				"getPassDataPrePost"
+			],
+			[
+				"in",
+				"inbound"
+			],
+			[
+				"our",
+				"ourPassID"
 			],
 			[
 				"strip",
-				"stripPath"
+				"stripImagePath"
+			],
+			[
+				"pass",
+				"passFileName"
+			],
+			[
+				"tr",
+				"trainNum"
+			],
+			[
+				"with",
+				"withYouth"
+			],
+			[
+				"ob",
+				"objWeWant"
+			],
+			[
+				"pos",
+				"posPreData"
+			],
+			[
+				"json",
+				"jsonLocation"
+			],
+			[
+				"tem",
+				"tempImagePath"
 			],
 			[
 				"te",
@@ -22,10 +66,6 @@
 			[
 				"arr",
 				"array_push"
-			],
-			[
-				"pass",
-				"passCount"
 			],
 			[
 				"pa",
@@ -154,10 +194,6 @@
 			[
 				"card",
 				"card-r1"
-			],
-			[
-				"our",
-				"ourWork_block3_iPad"
 			],
 			[
 				"kli",
@@ -392,20 +428,36 @@
 	"buffers":
 	[
 		{
-			"file": "/Users/phileverson/Desktop/eum2.14.10b-updater.app/Contents/Resources/Info.datx",
+			"file": "process/index.php",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 3993,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "- Postmark Hook (to PHP page)\n- Save Postmark Data to .json file\n- Get image and save to temp directory\n- Produce pass for each image in temp directory...\n	- Use online service to decode\n	- Parse name, train number, dates\n\n\n\n\n//$url = 'http://zxing.org/w/decode?u=http://picpaste.com/pics/viatest-yNt4taEn.1417981434.jpg';\n// $url = 'http://zxing.org/w/decode?u=http://picpaste.com/pics/viatest_65-HxIpqYvM.1417981361.jpg';\n\n// $url = 'http://zxing.org/w/decode?u=http://oi60.tinypic.com/4hval3.jpg';\n\n// // using file_get_contents function\n// $content = file_get_contents($url);\n\n// $preParse = explode('pre',$content);\n// $arrowParse = explode('>',$preParse[1]);\n\n// //the content of the code that's returned from zxing.org \n// $rawTextParsed = $arrowParse[1];\n// echo $rawTextParsed;\n\n\n\n//# Use the Curl extension to query Google and get back a page of results\n//$url = \"http://zxing.org/w/decode?u=http://picpaste.com/pics/viatest_65-HxIpqYvM.1417980524.jpg\";\n//$ch = curl_init();\n//$timeout = 5;\n//curl_setopt($ch, CURLOPT_URL, $url);\n//curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);\n//curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);\n//$html = curl_exec($ch);\n//curl_close($ch);\n//\n//# Create a DOM parser object\n//$dom = new DOMDocument();\n//\n//# Parse the HTML from Google.\n//# The @ before the method call suppresses any warnings that\n//# loadHTML might throw because of invalid HTML in the page.\n//@$dom->loadHTML($html);\n//\n//# Iterate over all the <a> tags\n//foreach($dom->getElementsByTagName('div') as $link) {\n//        # Show the <a href>\n//        echo $link->getAttribute('href');\n//        echo \"<br />\";\n//}\n//\n//echo \"hello\";",
+			"contents": "1612201423137 TORONTO UNION STATION Date : Tue. Dec 16, 2014 Departure : 17:40 PM KITCHENER Date : Tue. Dec 16, 2014 Arrival : 19:18 PM ------------------------------ Train",
 			"settings":
 			{
-				"buffer_size": 1647,
+				"buffer_size": 172,
 				"line_ending": "Unix",
-				"name": "- Postmark Hook (to PHP page)"
+				"name": "1612201423137 TORONTO UNION STATION Date : Tue. De"
+			}
+		},
+		{
+			"file": "process/_shared/_createPass.php",
+			"settings":
+			{
+				"buffer_size": 3561,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "process/_shared/_parseJson.php",
+			"settings":
+			{
+				"buffer_size": 1357,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -442,15 +494,31 @@
 	"expanded_folders":
 	[
 		"/Users/phileverson/Repos/via-porter",
-		"/Users/phileverson/Repos/via-porter/app",
-		"/Users/phileverson/Repos/via-porter/process"
+		"/Users/phileverson/Repos/via-porter/process",
+		"/Users/phileverson/Repos/via-porter/process/_extras",
+		"/Users/phileverson/Repos/via-porter/process/_extras/PKPass",
+		"/Users/phileverson/Repos/via-porter/process/_shared"
 	],
 	"file_history":
 	[
-		"/Users/phileverson/Desktop/eum2.14.10b-updater.app/Contents/Resources/Data.datx",
-		"/Users/phileverson/Repos/via-porter/process/index.php",
+		"/Users/phileverson/Repos/via-porter/process/_shared/_formatStrip.php",
+		"/Users/phileverson/Repos/via-porter/process/_shared/_getStrips.php",
+		"/Users/phileverson/Repos/via-porter/index.php",
 		"/Users/phileverson/Repos/via-porter/process/_extras/PKPass/index.php",
+		"/Users/phileverson/Repos/via-porter/process/index.php",
+		"/Users/phileverson/Repos/via-porter/process/_extras/PKPass/PKPass.php",
 		"/Users/phileverson/Repos/via-porter/process/_shared/_createPass.php",
+		"/Users/phileverson/Repos/via-porter/process/pass-1419950255a5c1c47dpass.pkpass",
+		"/Users/phileverson/Repos/via-porter/app/index.php",
+		"/Users/phileverson/Repos/via-porter/process/_extras/SimonWaldherr-passkit/passkit.php",
+		"/Users/phileverson/Repos/via-porter/process/_shared/_parseJson.php",
+		"/Users/phileverson/Repos/via-porter/process/inbound.json",
+		"/Users/phileverson/Repos/via-porter/process/_extras/SimonWaldherr-passkit/index.php",
+		"/Users/phileverson/Repos/via-porter/process/_extras/SimonWaldherr-passkit/data/json.php",
+		"/Users/phileverson/Repos/via-porter/index-temp.php",
+		"/Users/phileverson/Repos/via-porter/driving/postmark-inbound-php-master/test/Postmark/Tests/ExceptionTest.php",
+		"/Users/phileverson/Desktop/eum2.14.10b-updater.app/Contents/Resources/Info.datx",
+		"/Users/phileverson/Desktop/eum2.14.10b-updater.app/Contents/Resources/Data.datx",
 		"/Users/phileverson/Repos/via-porter/process/_shared/_getStrip.php",
 		"/Users/phileverson/Repos/via-porter/process/_shared/_saveJSON.php",
 		"/Users/phileverson/Repos/via-porter/driving/app/image-test.php",
@@ -535,7 +603,6 @@
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-thought-leadership.php",
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-work.php",
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/base/_typography.scss",
-		"/Users/phileverson/Repos/via-porter/app/index.php",
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-modules/_contact.scss",
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/**old-code-that-may-be-of-use/OLD-source/contact-form.js",
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/19a8d548b8847fe702c9070172383b5fa86117cb/_contact.scssc",
@@ -561,20 +628,7 @@
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/node_modules/grunt/node_modules/.bin/which",
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/node_modules/grunt/node_modules/hooker/parent.js",
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/node_modules/grunt/node_modules/hooker/package.json",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-video-overlay-trigger.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-video-overlay.php",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-modules/_careers.scss",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/069c4339c967e95225b24c49d6c475b6042b0eca/_careers.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/node_modules/grunt-autoprefixer/node_modules/autoprefixer-core/node_modules/caniuse-db/features-json/css-animation.json",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-modules/_growing.scss",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/node_modules/grunt-notify/lib/platforms/growl-notify.js",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/Gruntfile.js",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-modules/_thought-leadership.scss",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/069c4339c967e95225b24c49d6c475b6042b0eca/_thought-leadership.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/videos/richard.mp4",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/node_modules/browser-sync/README.md",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/node_modules/browser-sync/lib/public/reload.js",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/**old-code-that-may-be-of-use/OLD-source/scroll-down.js"
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-video-overlay-trigger.php"
 	],
 	"find":
 	{
@@ -594,6 +648,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"len",
+			"echo",
+			"{\n",
+			"pkpass",
+			");\n",
+			"test",
 			"imageStrip",
 			"makePassU",
 			"create",
@@ -643,58 +703,119 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/Users/phileverson/Desktop/eum2.14.10b-updater.app/Contents/Resources/Info.datx",
+					"file": "process/index.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 3993,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3147,
+								3147
 							]
 						],
 						"settings":
 						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 713.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 172,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								172,
+								172
+							]
+						],
+						"settings":
+						{
+							"auto_name": "1612201423137 TORONTO UNION STATION Date : Tue. De",
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
-					"buffer": 1,
+					"buffer": 2,
+					"file": "process/_shared/_createPass.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1647,
+						"buffer_size": 3561,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								323,
-								424
+								2135,
+								2135
 							]
 						],
 						"settings":
 						{
-							"auto_name": "- Postmark Hook (to PHP page)",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "process/_shared/_parseJson.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1357,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								746,
+								746
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -734,7 +855,7 @@
 		"cols":
 		[
 			0.0,
-			0.775219931723,
+			0.547826943277,
 			1.0
 		],
 		"rows":

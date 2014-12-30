@@ -1,21 +1,7 @@
 <?php
-require('PKPass.php');
+//Library for PKPass
+require('./_extras/PKPass/PKPass.php');
 
-// // $url = 'http://zxing.org/w/decode?u=http://oi60.tinypic.com/4hval3.jpg';
-// $url = 'http://zxing.org/w/decode?u=http://picpaste.com/extpics/S9UeP4K3.png';
-
-// // using file_get_contents function
-// $content = file_get_contents($url);
-
-// $preParse = explode('pre',$content);
-// $arrowParse = explode('>',$preParse[1]);
-
-// //the content of the code that's returned from zxing.org 
-// $rawTextParsed = $arrowParse[1];
-$rawTextParsed = '1612201423137EVERSON                       4   2B KITCTRTOVIA88  201412162135PHIL                P1H YTHEOM50020141216041702EC NB';
-
-if($rawTextParsed != null)
-{
     $pass = new PKPass\PKPass();
 
     $pass->setCertificate('Cert-viaporter-1.p12');  // 2. Set the path to your Pass Certificate (.p12 file)
@@ -111,6 +97,7 @@ if($rawTextParsed != null)
     if(!$pass->create(true)) { // Create and output the PKPass
         echo 'Error: '.$pass->getError();
     }
+    echo 'test?';
 }
 else
 {
