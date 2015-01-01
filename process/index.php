@@ -64,7 +64,9 @@ for ($i=0; $i < (count($barcodes)); $i++) {
     // $seat;
 
     //complicated parsing for date/times and to/froms
-    $viaRailToFrom = viaRailToFrom(getPassDataPrePost($emailTextVersion, ' FTR : ', 'Train', $i));
+    $viaRailToFromStringSingle = getPassDataPrePost($emailTextVersion, 'FTR : ', 'Train', $i);
+    // echo $emailTextVersion . '</br></br></br>string passed: ' . $viaRailToFromStringSingle;
+    $viaRailToFrom = viaRailToFrom($viaRailToFromStringSingle);
 
 
     //putting everything we need in an array for createPass()
@@ -74,13 +76,16 @@ for ($i=0; $i < (count($barcodes)); $i++) {
     $passDetails[2] = $passengerName;
     $passDetails[3] = $viaRailToFrom[0]; //departure city
     $passDetails[4] = $viaRailToFrom[1]; //departure date and time
+    $passDetails[5] = $viaRailToFrom[2]; //arrival city
+    $passDetails[6] = $viaRailToFrom[3]; //arrival date and time
 
 
-//BUG IN PARSE JSON I THINK...YOU'RE AT THE SKI HILL THOUGH...
 
 
 
     createPassFile($ourPassID, $i, $passDetails);
+    echo '<a href="_passes/' . $ourPassID . '/' . $i . '/' . $ourPassID . '.pkpass">Click here to download the pass...</a></br></br>';
+
 
 } // closing huge for loop
 

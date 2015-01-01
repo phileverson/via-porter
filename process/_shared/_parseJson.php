@@ -28,10 +28,24 @@ function viaRailToFrom($allString) {
 	$toFromData[0] = substr($allString, 0, $firstDate); //departure station
 
 	//getting departure date and time
-	$firstDepartureWord = strpos($allString, ' Departure : ');
-	$departDate = substr($allString, ($firstDate + 8), $firstDepartureWord);
-	$departTime = substr($allString, ($firstDepartureWord + strlen($firstDepartureWord)), $($firstDepartureWord + strlen($firstDepartureWord)) + 8);
+	$departDateNoStop = substr($allString, ($firstDate + 8));
+	$departDate = substr($departDateNoStop, 5, 13);
+
+	$departureWord = strpos($departDateNoStop, ' Departure : ');
+	$departTime = substr($departDateNoStop, $departureWord + 13, 8);
+
 	$toFromData[1] = $departDate . ' ' . $departTime;
+
+	//getting the arrival station
+	$arivalStationNoStop = substr($departDateNoStop, ($departureWord + 21));
+	$secondDate = strpos($arivalStationNoStop, ' Date : ');
+	$toFromData[2] = substr($arivalStationNoStop, 0, $secondDate); //arrival station
+
+	//getting arrival date and time
+	$wordArrival = strpos($arivalStationNoStop, 'Arrival : ');
+	$arrivalDate = substr($arivalStationNoStop, $secondDate + 12, 13);
+	$arivalTime = substr($arivalStationNoStop, ($wordArrival + 10), 8);
+	$toFromData[3] =  $arrivalDate . ' ' . $arivalTime; //arival date and time
 
 	return $toFromData;
 }

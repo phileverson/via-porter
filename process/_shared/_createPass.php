@@ -23,7 +23,7 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
     $associatedAppKeys    = array();
     $relevanceKeys        = array();
     $styleKeys            = array(
-        'eventTicket' => array(
+        'storeCard' => array(
             'primaryFields' => array(
                 array(
                     'key'   => 'seat-and-car',
@@ -35,12 +35,12 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
                 array(
                     'key'   => 'origin',
                     'label' => 'DEPARTING',
-                    'value' => $passDetails[3]
+                    'value' => 'TORONTO'//$passDetails[3]
                 ),
                 array(
                     'key'   => 'destination',
                     'label' => 'ARIVING',
-                    'value' => 'Toronto Union Station'
+                    'value' => $passDetails[5]
                 )
             ),
             'auxiliaryFields' => array(
@@ -51,8 +51,8 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
                 ),
                 array(
                     'key'   => 'arival-date-time',
-                    'label' => '12/12/2014 23:20',
-                    'value' => '12/12/2014 23:20'
+                    'label' => 'ARIVAL DETAILS',
+                    'value' => $passDetails[6]
                 )
             ),
             'headerFields' => array(

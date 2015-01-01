@@ -6,7 +6,7 @@ function formatStrip($ourPassID, $i_passSet) {
 	$filename = 'strip.png';
 
 	$thumb_width = (320 * 2);
-	$thumb_height = (123 * 2);
+	$thumb_height = (110 * 2);
 
 	$width = imagesx($image);
 	$height = imagesy($image);
