@@ -12,10 +12,11 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
 
     // Top-Level Keys http://developer.apple.com/library/ios/#documentation/userexperience/Reference/PassKit_Bundle/Chapters/TopLevel.html
     $standardKeys         = array(
-        'description'        => 'Demo pass',
         'formatVersion'      => 1,
     	'authenticationToken' => '1234567890abcdef1234',
-        'organizationName'   => 'CDNTicket',
+        'logoText'   => 'VIA Train ' . $passDetails[1],
+        "organizationName" => "Can Travel Pass",
+        'description' => 'No afilication with VIA Rail, Porter Airlines, or any other transportation providers.',
         'passTypeIdentifier' => 'pass.via-porter', // 4. Set to yours
         'serialNumber'       => '123456',
         'teamIdentifier'     => 'GH2A55GQ4M'           // 4. Set to yours
@@ -23,43 +24,56 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
     $associatedAppKeys    = array();
     $relevanceKeys        = array();
     $styleKeys            = array(
-        'storeCard' => array(
+        'boardingPass' => array(
+            'transitType' => 'PKTransitTypeTrain',
             'primaryFields' => array(
                 array(
-                    'key'   => 'seat-and-car',
-                    'label' => 'CAR / SEAT',
-                    'value' => '1 / 12A'
+                    'key'   => 'originStation',
+                    'label' => 'DEPARTING',
+                    'value' => $passDetails[7]
                 ),
+                array(
+                    'key'   => 'destinationStation',
+                    'label' => 'ARRIVING',
+                    'value' => $passDetails[8]
+                ),
+            ),
+            'auxiliaryFields' => array(
+                array(
+                    'key'   => 'originStationFullName',
+                    'label' => '',
+                    'value' => $passDetails[3]
+                ),
+                array(
+                    'key'   => 'destinationStationFullName',
+                    'label' => '',
+                    'value' => $passDetails[5]
+                )
             ),
             'secondaryFields' => array(
                 array(
                     'key'   => 'origin',
-                    'label' => 'DEPARTING',
-                    'value' => 'TORONTO'//$passDetails[3]
+                    'label' => 'DEPARTURE DETAILS',
+                    'value' => $passDetails[4],
+                    'textAlignment' => 'PKTextAlignmentLeft'
                 ),
                 array(
                     'key'   => 'destination',
-                    'label' => 'ARIVING',
-                    'value' => $passDetails[5]
-                )
-            ),
-            'auxiliaryFields' => array(
-                array(
-                    'key'   => 'depart-date-time',
-                    'label' => 'DEPARTURE DETAILS',
-                    'value' => $passDetails[4]
-                ),
-                array(
-                    'key'   => 'arival-date-time',
                     'label' => 'ARIVAL DETAILS',
-                    'value' => $passDetails[6]
+                    'value' => $passDetails[6],
+                    'textAlignment' => 'PKTextAlignmentRight'
                 )
             ),
             'headerFields' => array(
                 array(
-                    'key'   => 'trainNum',
-                    'label' => 'Train',
-                    'value' => $passDetails[1]
+                    'key'   => '1',
+                    'label' => 'Seat',
+                    'value' => '5S'
+                ),
+                array(
+                    'key'   => '0',
+                    'label' => 'Car',
+                    'value' => '1'
                 )
             ),
             'backFields' => array(
@@ -69,10 +83,17 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
                     'value' => $passDetails[2]
                 )
             )
+        ),
+        'barcode' => array(
+            'format'   => 'PKBarcodeFormatAztec',
+            // 'message' => '1811201424352Everson                       3   9C CWLLTRTOVIA65  201412071305Phil                P1N YTHEHQ81020141118124602ES NB ',//$passDetails[0],
+            'message' => $passDetails[0] . ' ',
+            'messageEncoding' => 'iso-8859-1'
         )
     );
     $visualAppearanceKeys = array(
-        'backgroundColor' => 'rgb(60, 65, 76)',
+        'backgroundColor' => 'rgb(91, 80, 81)',
+        // 'backgroundColor' => 'rgb(60, 65, 76)',
         'foregroundColor' => 'rgb(255,255,255)',
         'labelColor'      => 'rgb(255,255,255)'
     );
@@ -91,10 +112,10 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
     $pass->setJSON(json_encode($passData));
 
     // Add files to the PKPass package
-    $pass->addFile('./_extras/PKPass/images/icon.png');
-    $pass->addFile('./_extras/PKPass/images/icon@2x.png');
-    $pass->addFile('./_extras/PKPass/images/logo.png');
-    $pass->addFile($passDetails[0]);
+    $pass->addFile('_images/icon.png');
+    $pass->addFile('_images/icon@2x.png');
+    $pass->addFile('_images/logo.png');
+    $pass->addFile('_images/logo@2x.png');
 
     $pass->create(true, $ourPassID, $i_passSet);
 }

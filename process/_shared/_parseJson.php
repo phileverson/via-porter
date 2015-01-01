@@ -1,9 +1,33 @@
 <?php
 
+function ifLongerSpaceCut($longerString, $maxChar)
+{
+	if(strlen($longerString) > $maxChar)
+	{
+		$firstSpace = strpos($longerString, ' ');
+		$newShorterWord = substr($longerString, 0, ($firstSpace));
+		if(strlen($newShorterWord) > $maxChar)
+		{
+			return 'too long...';
+		}
+		return $newShorterWord;
+	}
+	return $longerString;
+}
 
 function getPassDataPrePost($textBody, $preData, $postData, $passOccurence) {
-	$boardingPassTextBody = explode('REFUND/EXCHANGE', $textBody);
-	$textBody = $boardingPassTextBody[$passOccurence];
+	// echo $passOccurence;
+	// if($passOccurence < 1)
+	// {
+	$boardingPassTextBody = explode('EC NB', $textBody);
+	$textBody = $boardingPassTextBody[$passOccurence + 1]; // plus 1 bc there's content above the first thing that we don't want...
+	// }
+	// if($passOccurence > 0)
+	// {
+	// 	$boardingPassTextBody = explode('EC NB', $textBody);
+	// 	$textBody = $boardingPassTextBody[$passOccurence];
+	// 	echo ' running the second one';
+	// }
 
 	$posPreData = strpos($textBody, $preData) + strlen($preData);
 	$posPostData = strpos($textBody, $postData);
@@ -25,7 +49,10 @@ function viaRailToFrom($allString) {
 
 	//getting the departure station
 	$firstDate = strpos($allString, ' Date : ');
-	$toFromData[0] = substr($allString, 0, $firstDate); //departure station
+	$departureStation = substr($allString, 0, $firstDate);
+	$departureStation = ifLongerSpaceCut($departureStation, 18);
+	$departureStation = preg_replace('/\s+/', '', $departureStation);
+	$toFromData[0] = $departureStation;
 
 	//getting departure date and time
 	$departDateNoStop = substr($allString, ($firstDate + 8));
@@ -38,8 +65,11 @@ function viaRailToFrom($allString) {
 
 	//getting the arrival station
 	$arivalStationNoStop = substr($departDateNoStop, ($departureWord + 21));
-	$secondDate = strpos($arivalStationNoStop, ' Date : ');
-	$toFromData[2] = substr($arivalStationNoStop, 0, $secondDate); //arrival station
+	$secondDate = strpos($arivalStationNoStop, 'Date');
+	$arrivalStation = substr($arivalStationNoStop, 0, 30);
+	$arrivalStation = ifLongerSpaceCut(trim($arrivalStation), 15);
+	$arrivalStation = preg_replace('/\s+/', '', $arrivalStation);
+	$toFromData[2] = $arrivalStation;
 
 	//getting arrival date and time
 	$wordArrival = strpos($arivalStationNoStop, 'Arrival : ');
@@ -49,5 +79,21 @@ function viaRailToFrom($allString) {
 
 	return $toFromData;
 }
+
+function viaRailToFromVIABarCode($returnedCode)
+{
+	$viaCodes = array();
+
+	$wordVIA = strpos($returnedCode, 'VIA');
+	$originCode = substr($returnedCode, ($wordVIA - 8), 4);
+	$destinationCode = substr($returnedCode, ($wordVIA - 4), 4);
+
+	$viaCodes[0] = $originCode;
+	$viaCodes[1] = $destinationCode;
+
+	return $viaCodes;
+}
+
+
 
 ?>

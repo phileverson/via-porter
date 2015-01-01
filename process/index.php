@@ -60,6 +60,7 @@ for ($i=0; $i < (count($barcodes)); $i++) {
     $trainNum = trim(strip_tags(getPassDataPrePost($emailTextVersion, 'Train #', 'Carrier', $i)));
     $stripImageBarcode = formatStrip($ourPassID, $i);
 
+    // echo $emailTextVersion;
     // $car;
     // $seat;
 
@@ -68,6 +69,7 @@ for ($i=0; $i < (count($barcodes)); $i++) {
     // echo $emailTextVersion . '</br></br></br>string passed: ' . $viaRailToFromStringSingle;
     $viaRailToFrom = viaRailToFrom($viaRailToFromStringSingle);
 
+    $viaRailToFromVIABarCode = viaRailToFromVIABarCode($stripImageBarcode);
 
     //putting everything we need in an array for createPass()
     $passDetails = array(); //array that holds everything for the pass
@@ -76,23 +78,21 @@ for ($i=0; $i < (count($barcodes)); $i++) {
     $passDetails[2] = $passengerName;
     $passDetails[3] = $viaRailToFrom[0]; //departure city
     $passDetails[4] = $viaRailToFrom[1]; //departure date and time
-    $passDetails[5] = $viaRailToFrom[2]; //arrival city
-    $passDetails[6] = $viaRailToFrom[3]; //arrival date and time
+    $passDetails[5] = $viaRailToFrom[2]; //aRrival city
+    $passDetails[6] = $viaRailToFrom[3]; //aRrival date and time
+    $passDetails[7] = $viaRailToFromVIABarCode[0]; //departure via city code
+    $passDetails[8] = $viaRailToFromVIABarCode[1]; //arRival via city code
 
-
-
-
+    // echo '</br>arival city: ' . $passDetails[5] . '</br>';
 
     createPassFile($ourPassID, $i, $passDetails);
-    echo '<a href="_passes/' . $ourPassID . '/' . $i . '/' . $ourPassID . '.pkpass">Click here to download the pass...</a></br></br>';
-
-
+    // echo '<a href="_passes/' . $ourPassID . '/' . $i . '/' . $ourPassID . '.pkpass">Click here to download the pass...</a></br></br>';
+    echo '<a href="../access/?passID=' . $ourPassID .'&i=' . $i . '">Click Here To Download Pass</a> </br></br>';
 } // closing huge for loop
 
 echo '</br>end of file, pass(s) in theory should be made...';
 
 ?>
-
 
 <!DOCTYPE html>
 <html>

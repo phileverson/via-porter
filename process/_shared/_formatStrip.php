@@ -5,8 +5,8 @@ function formatStrip($ourPassID, $i_passSet) {
 
 	$filename = 'strip.png';
 
-	$thumb_width = (320 * 2);
-	$thumb_height = (110 * 2);
+	$thumb_width = (75 * 2);
+	$thumb_height = (75 * 2);
 
 	$width = imagesx($image);
 	$height = imagesy($image);
@@ -39,7 +39,36 @@ function formatStrip($ourPassID, $i_passSet) {
 	$stripImagePath = './_passes/' . $ourPassID . '/' . $i_passSet . '/' . $filename;
 	rename($filename, $stripImagePath);
 
-	//returning the path to the image (for the pass creation)
-	return $stripImagePath;
+	
+
+if( strpos($_SERVER['HTTP_HOST'], '8888') > 0)
+{
+	$zxingPath = 'http://oi60.tinypic.com/4hval3.jpg';
+}
+else
+{
+	$zxingPath = 'http://grid.evertek.ca/deck4/via-porter/process' . substr($stripImagePath, 1);
+}
+	
+
+
+	//pass file path to zxing to decode...
+	$url = 'http://zxing.org/w/decode?u=' . $zxingPath;
+
+		echo 'full path for zxing is:    ' . $url . '</br>';
+
+
+	// using file_get_contents function
+	$content = file_get_contents($url);
+
+	$preParse = explode('pre',$content);
+	$arrowParse = explode('>',$preParse[1]);
+
+	//the content of the code that's returned from zxing.org 
+	$rawTextParsed = $arrowParse[1];
+
+	$rawTextParsed = substr($rawTextParsed, 0, -3);
+	return $rawTextParsed;
+
 }
 ?>

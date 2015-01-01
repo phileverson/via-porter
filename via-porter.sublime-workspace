@@ -4,12 +4,36 @@
 		"selected_items":
 		[
 			[
-				"via",
-				"viaRailToFrom"
+				"arri",
+				"arrivalDate"
+			],
+			[
+				"depat",
+				"departureWord"
+			],
+			[
+				"dep",
+				"departDateNoStop"
+			],
+			[
+				"strp",
+				"strpos"
 			],
 			[
 				"depart",
 				"departTime"
+			],
+			[
+				"fir",
+				"firstDepartureWord"
+			],
+			[
+				"email",
+				"emailTextVersion"
+			],
+			[
+				"via",
+				"viaRailToFromStringSingle"
 			],
 			[
 				"getpas",
@@ -146,10 +170,6 @@
 			[
 				"pro",
 				"pri_TL_firstHeroBanner"
-			],
-			[
-				"fir",
-				"firstHeroSlide"
 			],
 			[
 				"padding",
@@ -431,15 +451,15 @@
 			"file": "process/index.php",
 			"settings":
 			{
-				"buffer_size": 3993,
+				"buffer_size": 4206,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "1612201423137 TORONTO UNION STATION Date : Tue. Dec 16, 2014 Departure : 17:40 PM KITCHENER Date : Tue. Dec 16, 2014 Arrival : 19:18 PM ------------------------------ Train",
+			"contents": "1612201423137 TORONTO UNION STATION Date : Tue. Dec 16, 2014 Departure : 17:40 PM KITCHENER Date : Tue. Dec 16, 2014 Arrival : 19:18 PM ------------------------------ Train\n\n\nTue. Dec 16, 2014\n\n17:40 PM\n\nDeparture : 17:40 PM \n\nDate : ",
 			"settings":
 			{
-				"buffer_size": 172,
+				"buffer_size": 234,
 				"line_ending": "Unix",
 				"name": "1612201423137 TORONTO UNION STATION Date : Tue. De"
 			}
@@ -448,7 +468,7 @@
 			"file": "process/_shared/_createPass.php",
 			"settings":
 			{
-				"buffer_size": 3561,
+				"buffer_size": 3557,
 				"line_ending": "Unix"
 			}
 		},
@@ -456,7 +476,7 @@
 			"file": "process/_shared/_parseJson.php",
 			"settings":
 			{
-				"buffer_size": 1357,
+				"buffer_size": 1867,
 				"line_ending": "Unix"
 			}
 		}
@@ -502,6 +522,7 @@
 	"file_history":
 	[
 		"/Users/phileverson/Repos/via-porter/process/_shared/_formatStrip.php",
+		"/Users/phileverson/Repos/via-porter/z-dev-stuff/SimonWaldherr-passkit/data/generic.json",
 		"/Users/phileverson/Repos/via-porter/process/_shared/_getStrips.php",
 		"/Users/phileverson/Repos/via-porter/index.php",
 		"/Users/phileverson/Repos/via-porter/process/_extras/PKPass/index.php",
@@ -529,7 +550,6 @@
 		"/Users/phileverson/Repos/via-porter/z-dev-stuff/Sybio-ImageWorkshop-0a9d4cc/text-phil.php",
 		"/Users/phileverson/Repos/via-porter/driving/app/index.php",
 		"/Users/phileverson/Downloads/php_passbook-master/sign.php",
-		"/Users/phileverson/Repos/via-porter/z-dev-stuff/SimonWaldherr-passkit/data/generic.json",
 		"/Users/phileverson/Repos/via-porter/z-dev-stuff/SimonWaldherr-passkit/index.php",
 		"/Users/phileverson/Repos/via-porter/driving/app/cimage-master/webroot/test/test.php",
 		"/Users/phileverson/Repos/via-porter/driving/inbound.json",
@@ -707,15 +727,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3993,
+						"buffer_size": 4206,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3147,
-								3147
+								1975,
+								1975
 							]
 						],
 						"settings":
@@ -725,10 +745,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 713.0,
+						"translation.y": 619.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -736,15 +756,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 172,
+						"buffer_size": 234,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								172,
-								172
+								234,
+								234
 							]
 						],
 						"settings":
@@ -762,7 +782,7 @@
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -771,15 +791,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3561,
+						"buffer_size": 3557,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2135,
-								2135
+								1184,
+								1184
 							]
 						],
 						"settings":
@@ -788,11 +808,11 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 540.0,
+						"translation.x": 10.0,
+						"translation.y": 255.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -801,15 +821,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1357,
+						"buffer_size": 1867,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								746,
-								746
+								66,
+								66
 							]
 						],
 						"settings":
@@ -818,7 +838,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 45.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -855,7 +875,7 @@
 		"cols":
 		[
 			0.0,
-			0.547826943277,
+			0.403954799107,
 			1.0
 		],
 		"rows":
@@ -1067,7 +1087,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
