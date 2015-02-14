@@ -27,8 +27,8 @@ mkdir($ourPassID, 0777, true);
 rename($ourPassID, '_passes/' . $ourPassID);
 
 //temp - in prod this page will be hit with post data. write code that takes what's posted and puts it in a json
-file_put_contents("inbound_2.json", file_get_contents("php://input"));
-$file = 'inbound.json'; //copying the JSON rather then saving a new file with the post data (temp)
+file_put_contents("inbound_via_train_update.json", file_get_contents("php://input"));
+$file = 'inbound_via_train_update.json'; //copying the JSON rather then saving a new file with the post data (temp)
 
 
 $newfile = 'posthook.json';
@@ -104,9 +104,9 @@ for ($i=0; $i < (count($barcodes)); $i++) {
 $sent = send_email(array(
     'to' => $fromEmail,
     'from' => 'CanTravel <phil@phileverson.com>',
-    'subject' => 'That was easy',
-    'text_body' => 'This will be shown to plain-text mail clients',
-    'html_body' => '<html><body>But <em>this</em> will be shown to HTML mail clients</body></html>'
+    'subject' => 'CanTravel Pass: Train #' . $passDetails[1],
+    'text_body' => 'Click the link below to download your pass. http://grid.evertek.ca/deck4/via-porter/access/?passID=' . $ourPassID .'&i=' . $i . ' .',
+    'html_body' => '<html><body><a href="http://grid.evertek.ca/deck4/via-porter/access/?passID=' . $ourPassID .'&i=' . $i . '">Click Here To Download Pass</a> </br></br><em>CanTravel Team</em></body></html>'
 ), $response, $http_code);
 // Did it send successfully?
 if( $sent ) {
