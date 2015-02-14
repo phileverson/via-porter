@@ -9,6 +9,8 @@ require('_shared/_parseJson.php');
 //functions for barcode stuff
 require('_shared/_getStrips.php');
 require('_shared/_formatStrip.php');
+//PostMark Email script for sending...:
+require('_shared/_sendEmail.php');
 
 //Setting the timezone
 date_default_timezone_set('UTC');
@@ -25,7 +27,10 @@ mkdir($ourPassID, 0777, true);
 rename($ourPassID, '_passes/' . $ourPassID);
 
 //temp - in prod this page will be hit with post data. write code that takes what's posted and puts it in a json
+file_put_contents("inbound_2.json", file_get_contents("php://input"));
 $file = 'inbound.json'; //copying the JSON rather then saving a new file with the post data (temp)
+
+
 $newfile = 'posthook.json';
 copy($file, $newfile);
 $jsonLocation = '_passes/' . $ourPassID . '/' . $newfile;
@@ -43,6 +48,11 @@ $inbound = new \Postmark\Inbound(file_get_contents('_passes/' . $ourPassID . '/p
 
 //Setting the email text versionto a variable so we can use it in our for loop below
 $emailTextVersion = $inbound->TextBody();
+
+//grabbing the from email address...
+$fromEmail = $inbound->FromEmail();
+
+echo '<h2>'.$fromEmail.'</h2>';
 
 //echo '</br></br></br>' . $emailTextVersion . '</br></br></br>'; //temp for parsing
 
@@ -88,6 +98,32 @@ for ($i=0; $i < (count($barcodes)); $i++) {
     createPassFile($ourPassID, $i, $passDetails);
     // echo '<a href="_passes/' . $ourPassID . '/' . $i . '/' . $ourPassID . '.pkpass">Click here to download the pass...</a></br></br>';
     echo '<a href="../access/?passID=' . $ourPassID .'&i=' . $i . '">Click Here To Download Pass</a> </br></br>';
+
+
+//having the notification email sent...
+$sent = send_email(array(
+    'to' => $fromEmail,
+    'from' => 'CanTravel <phil@phileverson.com>',
+    'subject' => 'That was easy',
+    'text_body' => 'This will be shown to plain-text mail clients',
+    'html_body' => '<html><body>But <em>this</em> will be shown to HTML mail clients</body></html>'
+), $response, $http_code);
+// Did it send successfully?
+if( $sent ) {
+    echo 'The email was sent!';
+} else {
+    echo 'The email could not be sent!';
+}
+// Show the response and HTTP code
+echo '<pre>';
+echo 'The JSON response from Postmark:<br />';
+print_r($response);
+echo 'The HTTP code was: ' . $http_code;
+echo '</pre>';
+
+
+
+
 } // closing huge for loop
 
 echo '</br>end of file, pass(s) in theory should be made...';

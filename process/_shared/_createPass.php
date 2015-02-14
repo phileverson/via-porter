@@ -14,8 +14,8 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
     $standardKeys         = array(
         'formatVersion'      => 1,
     	'authenticationToken' => '1234567890abcdef1234',
-        'logoText'   => 'VIA Train ' . $passDetails[1],
-        "organizationName" => "Can Travel Pass",
+        'logoText'   => 'CanTravel ' . $passDetails[1],
+        "organizationName" => "CanTravel Pass",
         'description' => 'No afilication with VIA Rail, Porter Airlines, or any other transportation providers.',
         'passTypeIdentifier' => 'pass.via-porter', // 4. Set to yours
         'serialNumber'       => '123456',
