@@ -23,7 +23,7 @@ function curl_file_get_contents($url)
 
 function formatStrip($ourPassID, $i_passSet) {
 
-	$i_passSet = abs($i_passSet - 1);
+	// $i_passSet = abs($i_passSet - 1);
 	// echo $i_passSet;
 
     //creating the new strip image (setting the image size, background colour, etc.)
@@ -89,7 +89,7 @@ else
 
 
 	// using file_get_contents function
-	$content = curl_file_get_contents($url);
+	$content = file_get_contents($url);
 
 	$preParse = explode('pre',$content);
 	$arrowParse = explode('>',$preParse[1]);
