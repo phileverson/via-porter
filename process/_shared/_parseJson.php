@@ -101,7 +101,7 @@ function viaRailSeat($returnedCode)
 	$viaRailSeat = array();
 
 	$wordVIA = strpos($returnedCode, 'VIA');
-	$seat = trim(substr($returnedCode, ($wordVIA - 12), 3));
+	$seat = trim(substr($returnedCode, ($wordVIA - 12), 4));
 	$car = trim(substr($returnedCode, ($wordVIA - 16), 5));
 
 	$viaRailSeat[0] = $seat;
