@@ -29,6 +29,7 @@ rename($ourPassID, '_passes/' . $ourPassID);
 //temp - in prod this page will be hit with post data. write code that takes what's posted and puts it in a json
 file_put_contents("inbound_via_train_update.json", file_get_contents("php://input"));
 $file = 'inbound_via_train_update.json'; //copying the JSON rather then saving a new file with the post data (temp)
+// $file = 'inbound.json'; //copying the JSON rather then saving a new file with the post data (temp)
 
 
 $newfile = 'posthook.json';
@@ -81,6 +82,8 @@ for ($i=0; $i < (count($barcodes)); $i++) {
 
     $viaRailToFromVIABarCode = viaRailToFromVIABarCode($stripImageBarcode);
 
+    $viaRailSeatCarStuffFromBarCode = viaRailSeat($stripImageBarcode);
+
     //putting everything we need in an array for createPass()
     $passDetails = array(); //array that holds everything for the pass
     $passDetails[0] = $stripImageBarcode;
@@ -92,6 +95,8 @@ for ($i=0; $i < (count($barcodes)); $i++) {
     $passDetails[6] = $viaRailToFrom[3]; //aRrival date and time
     $passDetails[7] = $viaRailToFromVIABarCode[0]; //departure via city code
     $passDetails[8] = $viaRailToFromVIABarCode[1]; //arRival via city code
+    $passDetails[9] = $viaRailSeatCarStuffFromBarCode[0]; //seat
+    $passDetails[10] = $viaRailSeatCarStuffFromBarCode[1]; //car
 
     // echo '</br>arival city: ' . $passDetails[5] . '</br>';
 
@@ -100,26 +105,26 @@ for ($i=0; $i < (count($barcodes)); $i++) {
     echo '<a href="../access/?passID=' . $ourPassID .'&i=' . $i . '">Click Here To Download Pass</a> </br></br>';
 
 
-//having the notification email sent...
-$sent = send_email(array(
-    'to' => $fromEmail,
-    'from' => 'CanTravel <phil@phileverson.com>',
-    'subject' => 'CanTravel Pass: Train #' . $passDetails[1],
-    'text_body' => 'Click the link below to download your pass. http://grid.evertek.ca/deck4/via-porter/access/?passID=' . $ourPassID .'&i=' . $i . ' .',
-    'html_body' => '<html><body><a href="http://grid.evertek.ca/deck4/via-porter/access/?passID=' . $ourPassID .'&i=' . $i . '">Click Here To Download Pass</a> </br></br><em>CanTravel Team</em></body></html>'
-), $response, $http_code);
-// Did it send successfully?
-if( $sent ) {
-    echo 'The email was sent!';
-} else {
-    echo 'The email could not be sent!';
-}
-// Show the response and HTTP code
-echo '<pre>';
-echo 'The JSON response from Postmark:<br />';
-print_r($response);
-echo 'The HTTP code was: ' . $http_code;
-echo '</pre>';
+// //having the notification email sent...
+// $sent = send_email(array(
+//     'to' => $fromEmail,
+//     'from' => 'CanTravel <phil@phileverson.com>',
+//     'subject' => 'CanTravel Pass: Train #' . $passDetails[1],
+//     'text_body' => 'Click the link below to download your pass. http://grid.evertek.ca/deck4/via-porter/access/?passID=' . $ourPassID .'&i=' . $i . ' .',
+//     'html_body' => '<html><body><a href="http://grid.evertek.ca/deck4/via-porter/access/?passID=' . $ourPassID .'&i=' . $i . '">Click Here To Download Pass</a> </br></br><em>CanTravel Team</em></body></html>'
+// ), $response, $http_code);
+// // Did it send successfully?
+// if( $sent ) {
+//     echo 'The email was sent!';
+// } else {
+//     echo 'The email could not be sent!';
+// }
+// // Show the response and HTTP code
+// echo '<pre>';
+// echo 'The JSON response from Postmark:<br />';
+// print_r($response);
+// echo 'The HTTP code was: ' . $http_code;
+// echo '</pre>';
 
 
 
