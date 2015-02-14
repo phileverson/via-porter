@@ -42,12 +42,12 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
                 array(
                     'key'   => 'originStationFullName',
                     'label' => '',
-                    'value' => $passDetails[3]
+                    'value' => $passDetails[5]
                 ),
                 array(
                     'key'   => 'destinationStationFullName',
                     'label' => '',
-                    'value' => $passDetails[5]
+                    'value' => $passDetails[3]
                 )
             ),
             'secondaryFields' => array(
@@ -68,12 +68,12 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
                 array(
                     'key'   => '1',
                     'label' => 'Seat',
-                    'value' => '5S'
+                    'value' => $passDetails[9]
                 ),
                 array(
                     'key'   => '0',
                     'label' => 'Car',
-                    'value' => '1'
+                    'value' => $passDetails[10]
                 )
             ),
             'backFields' => array(

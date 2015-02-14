@@ -96,4 +96,21 @@ function viaRailToFromVIABarCode($returnedCode)
 
 
 
+function viaRailSeat($returnedCode)
+{
+	$viaRailSeat = array();
+
+	$wordVIA = strpos($returnedCode, 'VIA');
+	$seat = substr($returnedCode, ($wordVIA - 12), 3);
+	$car = substr($returnedCode, ($wordVIA - 16), 5);
+
+	$viaRailSeat[0] = $seat;
+	$viaRailSeat[1] = $car;
+
+	return $viaRailSeat;
+}
+
+
+
+
 ?>
