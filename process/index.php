@@ -105,26 +105,26 @@ for ($i=0; $i < (count($barcodes)); $i++) {
     echo '<a href="../access/?passID=' . $ourPassID .'&i=' . $i . '">Click Here To Download Pass</a> </br></br>';
 
 
-// //having the notification email sent...
-// $sent = send_email(array(
-//     'to' => $fromEmail,
-//     'from' => 'CanTravel <phil@phileverson.com>',
-//     'subject' => 'CanTravel Pass: Train #' . $passDetails[1],
-//     'text_body' => 'Click the link below to download your pass. http://grid.evertek.ca/deck4/via-porter/access/?passID=' . $ourPassID .'&i=' . $i . ' .',
-//     'html_body' => '<html><body><a href="http://grid.evertek.ca/deck4/via-porter/access/?passID=' . $ourPassID .'&i=' . $i . '">Click Here To Download Pass</a> </br></br><em>CanTravel Team</em></body></html>'
-// ), $response, $http_code);
-// // Did it send successfully?
-// if( $sent ) {
-//     echo 'The email was sent!';
-// } else {
-//     echo 'The email could not be sent!';
-// }
-// // Show the response and HTTP code
-// echo '<pre>';
-// echo 'The JSON response from Postmark:<br />';
-// print_r($response);
-// echo 'The HTTP code was: ' . $http_code;
-// echo '</pre>';
+//having the notification email sent...
+$sent = send_email(array(
+    'to' => $fromEmail,
+    'from' => 'CanTravel <phil@phileverson.com>',
+    'subject' => 'CanTravel Pass: Train #' . $passDetails[1],
+    'text_body' => 'Click the link below to download your pass. http://grid.evertek.ca/deck4/via-porter/access/?passID=' . $ourPassID .'&i=' . $i . ' .',
+    'html_body' => '<html><body><a href="http://grid.evertek.ca/deck4/via-porter/access/?passID=' . $ourPassID .'&i=' . $i . '">Click Here To Download Pass</a> </br></br><em>CanTravel Team</em></body></html>'
+), $response, $http_code);
+// Did it send successfully?
+if( $sent ) {
+    echo 'The email was sent!';
+} else {
+    echo 'The email could not be sent!';
+}
+// Show the response and HTTP code
+echo '<pre>';
+echo 'The JSON response from Postmark:<br />';
+print_r($response);
+echo 'The HTTP code was: ' . $http_code;
+echo '</pre>';
 
 
 
