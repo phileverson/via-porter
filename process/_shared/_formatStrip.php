@@ -20,7 +20,6 @@ function curl_file_get_contents($url)
 }
 
 
-
 function formatStrip($ourPassID, $i_passSet) {
 
 	// $i_passSet = abs($i_passSet - 1);
@@ -64,29 +63,20 @@ function formatStrip($ourPassID, $i_passSet) {
 	imagepng($thumb, $filename, 0);
 	$stripImagePath = './_passes/' . $ourPassID . '/' . $i_passSet . '/' . $filename;
 	rename($filename, $stripImagePath);
-
 	
-
-if( strpos($_SERVER['HTTP_HOST'], '8888') > 0)
-{
-	$zxingPath = 'http://oi60.tinypic.com/4hval3.jpg';
-}
-else
-{
-	$zxingPath = 'http://grid.evertek.ca/deck4/via-porter/process' . substr($stripImagePath, 1);
-}
-	
-
-
-
-
-
+	if( strpos($_SERVER['HTTP_HOST'], '8888') > 0)
+	{
+		$zxingPath = 'http://oi60.tinypic.com/4hval3.jpg';
+	}
+	else
+	{
+		$zxingPath = 'http://grid.evertek.ca/deck4/via-porter/process' . substr($stripImagePath, 1);
+	}	
 
 	//pass file path to zxing to decode...
 	$url = 'http://zxing.org/w/decode?u=' . $zxingPath;
 
-		echo 'full path for zxing is:    ' . $url . '</br>';
-
+	echo 'full path for zxing is:    ' . $url . '</br>';
 
 	// using file_get_contents function
 	$content = file_get_contents($url);
