@@ -61,7 +61,7 @@ $emailTextVersion = $inbound->TextBody();
 //grabbing the from email address...
 $fromEmail = $inbound->FromEmail();
 
-echo '<h2>'.$fromEmail.'</h2>';
+echo '<h2 class="fromEmail">'.$fromEmail.'</h2>';
 
 //echo '</br></br></br>' . $emailTextVersion . '</br></br></br>'; //temp for parsing
 
@@ -110,7 +110,7 @@ for ($i=0; $i < (count($barcodes)); $i++) {
 
     createPassFile($ourPassID, $i, $passDetails);
     // echo '<a href="_passes/' . $ourPassID . '/' . $i . '/' . $ourPassID . '.pkpass">Click here to download the pass...</a></br></br>';
-    echo '<a href="../access/?passID=' . $ourPassID .'&i=' . $i . '">Click Here To Download Pass</a> </br></br>';
+    echo '<a class="pass-path" trainNumVar="' . $trainNum . '" href="../access/?passID=' . $ourPassID .'&i=' . $i . '">Click Here To Download Pass</a> </br></br>';
 
 
 
@@ -153,20 +153,26 @@ echo '</br>end of file, pass(s) in theory should be made...';
 
 <!DOCTYPE html>
 <html>
-<head><!-- 
+<head>
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.0.6/firebase.js"></script>
- -->
+
     <script type="text/javascript">
+
+    var d = new Date();
+
     // Firebase Setup
-    // var myFirebaseRef = new Firebase("https://via-porter.firebaseio.com/");
-    // var passesRef = myFirebaseRef.child("passes");
-    // $('.pass-path').each(function() {
-    //     passesRef.push({
-    //       passPath: $(this).text()
-    //     });
-    //     console.log('added pass path');
-    // });
+    var myFirebaseRef = new Firebase("https://via-porter.firebaseio.com/");
+    var passesRef = myFirebaseRef.child("passes");
+    $('.pass-path').each(function() {
+        passesRef.push({
+          passPath: "http://www.cantravel.co" + $(this).attr("href").substring(2),
+          passEmail: $('.fromEmail').text(),
+          passTrainNum: $(this).attr("trainNumVar"),
+          passSentDate: d.toDateString().substring(4)
+        });
+        console.log('added pass path');
+    });
     </script>
 
     <title></title>
