@@ -113,4 +113,23 @@ function viaRailSeat($returnedCode)
 
 
 
+function newMethodForAll($newBarCodeRead)
+{
+	$viaRailAll = array();
+	// 1811201424352Everson                       3   9C CWLLTRTOVIA65  201412071305Phil                P1N YTHEHQ81020141118124602ES NB 
+	$firstName = trim(substr($newBarCodeRead, 77, 20));
+	$lastName = trim(substr($newBarCodeRead, 13, 20));
+	$trainNum = trim(substr($newBarCodeRead, 61, 4));
+
+	$viaRailAll[0] = $firstName;
+	$viaRailAll[1] = $lastName;
+	$viaRailAll[2] = $trainNum;
+
+	return $viaRailAll;
+	# code...
+}
+
+
+
+
 ?>

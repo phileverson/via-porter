@@ -92,11 +92,13 @@ for ($i=0; $i < (count($barcodes)); $i++) {
 
     $viaRailSeatCarStuffFromBarCode = viaRailSeat($stripImageBarcode);
 
+    $viaRailAll = newMethodForAll($stripImageBarcode);
+
     //putting everything we need in an array for createPass()
     $passDetails = array(); //array that holds everything for the pass
     $passDetails[0] = $stripImageBarcode;
-    $passDetails[1] = 'blah'; //$trainNum;
-    $passDetails[2] = 'blah'; //$passengerName;
+    $passDetails[1] = $viaRailAll[2]; //$trainNum;
+    $passDetails[2] = $viaRailAll[0] . ' ' . $viaRailAll[1]; //$passengerName;
     $passDetails[3] = 'blah'; //$viaRailToFrom[0]; //departure city
     $passDetails[4] = 'blah'; //$viaRailToFrom[1]; //departure date and time
     $passDetails[5] = 'blah'; //$viaRailToFrom[2]; //aRrival city
