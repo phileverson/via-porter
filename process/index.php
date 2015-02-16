@@ -75,18 +75,18 @@ $barcodes = getStrips($ourPassID, $inbound);
 for ($i=0; $i < (count($barcodes)); $i++) { 
 
     //Parsing the data we need the pass fields:
-    $passengerName = ucwords(getPassDataPost(getPassDataPrePost($emailTextVersion, 'PASSENGER : ', 'VIA PR', $i), ','));
-    $trainNum = trim(strip_tags(getPassDataPrePost($emailTextVersion, 'Train #', 'Carrier', $i)));
+    // $passengerName = ucwords(getPassDataPost(getPassDataPrePost($emailTextVersion, 'PASSENGER : ', 'VIA PR', $i), ','));
+    // $trainNum = trim(strip_tags(getPassDataPrePost($emailTextVersion, 'Train #', 'Carrier', $i)));
     $stripImageBarcode = formatStrip($ourPassID, $i);
 
-    // echo $emailTextVersion;
-    // $car;
-    // $seat;
+    // // echo $emailTextVersion;
+    // // $car;
+    // // $seat;
 
-    //complicated parsing for date/times and to/froms
-    $viaRailToFromStringSingle = getPassDataPrePost($emailTextVersion, 'FTR : ', 'Train', $i);
-    // echo $emailTextVersion . '</br></br></br>string passed: ' . $viaRailToFromStringSingle;
-    $viaRailToFrom = viaRailToFrom($viaRailToFromStringSingle);
+    // //complicated parsing for date/times and to/froms
+    // $viaRailToFromStringSingle = getPassDataPrePost($emailTextVersion, 'FTR : ', 'Train', $i);
+    // // echo $emailTextVersion . '</br></br></br>string passed: ' . $viaRailToFromStringSingle;
+    // $viaRailToFrom = viaRailToFrom($viaRailToFromStringSingle);
 
     $viaRailToFromVIABarCode = viaRailToFromVIABarCode($stripImageBarcode);
 
@@ -95,12 +95,12 @@ for ($i=0; $i < (count($barcodes)); $i++) {
     //putting everything we need in an array for createPass()
     $passDetails = array(); //array that holds everything for the pass
     $passDetails[0] = $stripImageBarcode;
-    $passDetails[1] = $trainNum;
-    $passDetails[2] = $passengerName;
-    $passDetails[3] = $viaRailToFrom[0]; //departure city
-    $passDetails[4] = $viaRailToFrom[1]; //departure date and time
-    $passDetails[5] = $viaRailToFrom[2]; //aRrival city
-    $passDetails[6] = $viaRailToFrom[3]; //aRrival date and time
+    $passDetails[1] = 'blah'; //$trainNum;
+    $passDetails[2] = 'blah'; //$passengerName;
+    $passDetails[3] = 'blah'; //$viaRailToFrom[0]; //departure city
+    $passDetails[4] = 'blah'; //$viaRailToFrom[1]; //departure date and time
+    $passDetails[5] = 'blah'; //$viaRailToFrom[2]; //aRrival city
+    $passDetails[6] = 'blah'; //$viaRailToFrom[3]; //aRrival date and time
     $passDetails[7] = $viaRailToFromVIABarCode[0]; //departure via city code
     $passDetails[8] = $viaRailToFromVIABarCode[1]; //arRival via city code
     $passDetails[9] = $viaRailSeatCarStuffFromBarCode[0]; //seat
