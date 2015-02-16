@@ -112,7 +112,7 @@ for ($i=0; $i < (count($barcodes)); $i++) {
 
     createPassFile($ourPassID, $i, $passDetails);
     // echo '<a href="_passes/' . $ourPassID . '/' . $i . '/' . $ourPassID . '.pkpass">Click here to download the pass...</a></br></br>';
-    echo '<a class="pass-path" trainNumVar="' . $trainNum . '" href="../access/?passID=' . $ourPassID .'&i=' . $i . '">Click Here To Download Pass</a> </br></br>';
+    echo '<a class="pass-path" trainNumVar="' . $viaRailAll[2] . '" href="../access/?passID=' . $ourPassID .'&i=' . $i . '">Click Here To Download Pass</a> </br></br>';
 
 
 
