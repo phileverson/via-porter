@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.0.6/firebase.js"></script>
+
+    <script type="text/javascript">
+// Get a reference to our posts
+// var ref = new Firebase("https://via-porter.firebaseio.com/passes");
+
+// // Attach an asynchronous callback to read the data at our posts reference
+// ref.on("value", function(snapshot) {
+// 	snapshot.forEach(function(data) {
+//     console.log("Key: " + data.key() + " Email: " + data.val().passEmail)
+//   });
+
+// }, function (errorObject) {
+//   console.log("The read failed: " + errorObject.code);
+// });
+
+
+	var ref = new Firebase("https://via-porter.firebaseio.com/passes");
+ref.orderByChild("passEmail").equalTo('3627705@gmail.com').on("value", function(snapshot) {
+  	snapshot.forEach(function(data) {
+    console.log("Key: " + data.key() + " Email: " + data.val().passEmail)
+    $('p').after(data.val().passEmail);
+     });
+});
+
+
+
+
+    </script>
+
+    <title></title>
+</head>
+<body>
+<h1>Phil's Awesome VIA Rail / Porter Airlines Passbook Creator</h1>
+
+<p></p>
+
+</body>
+</html>
