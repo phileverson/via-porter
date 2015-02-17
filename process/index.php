@@ -146,8 +146,39 @@ else
 }   
 
 
+//adding to Firebase:
+$dataForCurl = ' {"passEmail": "'. $fromEmail . '", "passPath": "http://www.cantravel.co/access/?passID='. $ourPassID .'&i=' . $i . '", "passSentDate": "'. date('Y/m/d')  . '", "passTrainNum": "'. $passDetails[1] . '"}';
+
+echo put('https://via-porter.firebaseio.com/passes.json', $dataForCurl);
+
+
+
 
 } // closing huge for loop
+
+function put($url, $fields)
+{
+    $post_field_string = http_build_query($fields, '', '&');
+    
+    $ch = curl_init($url);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+    
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+    
+    $response = curl_exec($ch);
+    
+    curl_close ($ch);
+    
+    return $response;
+}
+
 
 echo '</br>end of file, pass(s) in theory should be made...';
 
@@ -163,18 +194,18 @@ echo '</br>end of file, pass(s) in theory should be made...';
 
     var d = new Date();
 
-    // Firebase Setup
-    var myFirebaseRef = new Firebase("https://via-porter.firebaseio.com/");
-    var passesRef = myFirebaseRef.child("passes");
-    $('.pass-path').each(function() {
-        passesRef.push({
-          passPath: "http://www.cantravel.co" + $(this).attr("href").substring(2),
-          passEmail: $('.fromEmail').text(),
-          passTrainNum: $(this).attr("trainNumVar"),
-          passSentDate: d.toDateString().substring(4)
-        });
-        console.log('added pass path');
-    });
+    // // Firebase Setup
+    // var myFirebaseRef = new Firebase("https://via-porter.firebaseio.com/");
+    // var passesRef = myFirebaseRef.child("passes");
+    // $('.pass-path').each(function() {
+    //     passesRef.push({
+    //       passPath: "http://www.cantravel.co" + $(this).attr("href").substring(2),
+    //       passEmail: $('.fromEmail').text(),
+    //       passTrainNum: $(this).attr("trainNumVar"),
+    //       passSentDate: d.toDateString().substring(4)
+    //     });
+    //     console.log('added pass path');
+    // });
     </script>
 
     <title></title>
