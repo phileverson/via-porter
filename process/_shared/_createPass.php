@@ -51,7 +51,7 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
             //     )
             // ),
             // 'secondaryFields' => array(
-            'auxiliaryFields' => array(
+            'secondaryFields' => array(
                 array(
                     'key'   => 'date',
                     'label' => 'DATE',
