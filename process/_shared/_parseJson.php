@@ -121,9 +121,15 @@ function newMethodForAll($newBarCodeRead)
 	$lastName = trim(substr($newBarCodeRead, 13, 20));
 	$trainNum = trim(substr($newBarCodeRead, 61, 4));
 
+	$departDateTimeStringWhole = substr($newBarCodeRead, 65, 12);
+	$phpDateFormated = strtotime($departDateTimeStringWhole);
+
+
 	$viaRailAll[0] = $firstName;
 	$viaRailAll[1] = $lastName;
 	$viaRailAll[2] = $trainNum;
+	$viaRailAll[3] = date("M d Y", $phpDateFormated);
+	$viaRailAll[4] = date("h:ia", $phpDateFormated);
 
 	return $viaRailAll;
 	# code...

@@ -14,12 +14,12 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
     $standardKeys         = array(
         'formatVersion'      => 1,
     	'authenticationToken' => '1234567890abcdef1234',
-        'logoText'   => 'CanTravel ' . $passDetails[1],
+        'logoText'   => 'CanTravel - Train #' . $passDetails[1],
         "organizationName" => "CanTravel Pass",
         'description' => 'No afilication with VIA Rail, Porter Airlines, or any other transportation providers.',
         'passTypeIdentifier' => 'pass.via-porter', // 4. Set to yours
         'serialNumber'       => '123456',
-        'teamIdentifier'     => 'GH2A55GQ4M'           // 4. Set to yours
+        'teamIdentifier'     => 'GH2A55GQ4M' // 4. Set to yours
     );
     $associatedAppKeys    = array();
     $relevanceKeys        = array();
@@ -28,39 +28,46 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
             'transitType' => 'PKTransitTypeTrain',
             'primaryFields' => array(
                 array(
-                    'key'   => 'originStation',
+                    'key'   => '0',
                     'label' => 'DEPARTING',
                     'value' => $passDetails[7]
                 ),
                 array(
-                    'key'   => 'destinationStation',
+                    'key'   => '1',
                     'label' => 'ARRIVING',
                     'value' => $passDetails[8]
                 ),
             ),
-            'auxiliaryFields' => array(
-                array(
-                    'key'   => 'originStationFullName',
-                    'label' => '',
-                    'value' => $passDetails[3]
-                ),
-                array(
-                    'key'   => 'destinationStationFullName',
-                    'label' => '',
-                    'value' => $passDetails[5]
-                )
-            ),
+            // 'auxiliaryFields' => array(
+            //     array(
+            //         'key'   => 'originStationFullName',
+            //         'label' => '',
+            //         'value' => $passDetails[3]
+            //     ),
+            //     array(
+            //         'key'   => 'destinationStationFullName',
+            //         'label' => '',
+            //         'value' => $passDetails[5]
+            //     )
+            // ),
             'secondaryFields' => array(
                 array(
-                    'key'   => 'origin',
-                    'label' => 'DEPARTURE DETAILS',
+                    'key'   => '0',
+                    'label' => 'DATE',
                     'value' => $passDetails[4],
                     'textAlignment' => 'PKTextAlignmentLeft'
                 ),
                 array(
-                    'key'   => 'destination',
-                    'label' => 'ARIVAL DETAILS',
-                    'value' => $passDetails[6],
+                    'key'   => '1',
+                    'label' => 'TIME',
+                    'value' => $passDetails[11],
+                    'textAlignment' => 'PKTextAlignmentLeft'
+                ),
+
+                array(
+                    'key'   => '2',
+                    'label' => 'TRAIN',
+                    'value' => $passDetails[1],
                     'textAlignment' => 'PKTextAlignmentRight'
                 )
             ),
@@ -78,9 +85,14 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
             ),
             'backFields' => array(
                 array(
-                    'key'   => 'passenger-name',
+                    'key'   => '0',
                     'label' => 'Passenger',
                     'value' => $passDetails[2]
+                ),
+                array(
+                    'key'   => '1',
+                    'label' => 'IMPORTANT LEGAL STUFF',
+                    'value' => 'This pass is not endorsed by Via Rail Canada - use at your own risk. Although you shouldn\'t need it, we strongly encourage you to have your official boarding pass available, should it be requested.' 
                 )
             )
         ),

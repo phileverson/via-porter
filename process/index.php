@@ -18,6 +18,7 @@ date_default_timezone_set('UTC');
 //Declaring Some Variables
 $ourPassID = 'pass-' . time().hash("CRC32", $_SERVER["REMOTE_ADDR"].$_SERVER["HTTP_USER_AGENT"]);
 
+
 //********************************************************************
 //Saving the JSON and putting it in the right spot
 //********************************************************************
@@ -26,7 +27,7 @@ $ourPassID = 'pass-' . time().hash("CRC32", $_SERVER["REMOTE_ADDR"].$_SERVER["HT
 mkdir($ourPassID, 0777, true);
 rename($ourPassID, '_passes/' . $ourPassID);
 
-
+//catch so that we only check for post data on prod
 if( strpos($_SERVER['HTTP_HOST'], '8888') > 0)
 {
     echo '</br> Not looking for file in post...</br>';
@@ -44,6 +45,7 @@ $newfile = 'posthook.json';
 copy($file, $newfile);
 $jsonLocation = '_passes/' . $ourPassID . '/' . $newfile;
 rename($newfile, $jsonLocation);
+
 
 //********************************************************************
 //Dealing with the Email
@@ -63,10 +65,9 @@ $fromEmail = $inbound->FromEmail();
 
 echo '<h2 class="fromEmail">'.$fromEmail.'</h2>';
 
-//echo '</br></br></br>' . $emailTextVersion . '</br></br></br>'; //temp for parsing
-
 //saving the images and getting their filenames in an array
 $barcodes = getStrips($ourPassID, $inbound);
+
 
 //********************************************************************
 //BIG For Loop for Creating the Pass (s)
@@ -99,24 +100,25 @@ for ($i=0; $i < (count($barcodes)); $i++) {
     $passDetails[0] = $stripImageBarcode;
     $passDetails[1] = $viaRailAll[2]; //$trainNum;
     $passDetails[2] = $viaRailAll[0] . ' ' . $viaRailAll[1]; //$passengerName;
-    $passDetails[3] = 'blah'; //$viaRailToFrom[0]; //departure city
-    $passDetails[4] = 'blah'; //$viaRailToFrom[1]; //departure date and time
-    $passDetails[5] = 'blah'; //$viaRailToFrom[2]; //aRrival city
-    $passDetails[6] = 'blah'; //$viaRailToFrom[3]; //aRrival date and time
+    $passDetails[3] = ''; //$viaRailToFrom[0]; //departure city
+    $passDetails[4] = $viaRailAll[3]; //$viaRailToFrom[1]; //departure date 
+    $passDetails[5] = ''; //$viaRailToFrom[2]; //aRrival city
+    $passDetails[6] = ''; //$viaRailToFrom[3]; //aRrival date and time
     $passDetails[7] = $viaRailToFromVIABarCode[0]; //departure via city code
     $passDetails[8] = $viaRailToFromVIABarCode[1]; //arRival via city code
     $passDetails[9] = $viaRailSeatCarStuffFromBarCode[0]; //seat
     $passDetails[10] = $viaRailSeatCarStuffFromBarCode[1]; //car
+    $passDetails[11] = $viaRailAll[4]; //departure time 
 
-    // echo '</br>arival city: ' . $passDetails[5] . '</br>';
 
     createPassFile($ourPassID, $i, $passDetails);
     // echo '<a href="_passes/' . $ourPassID . '/' . $i . '/' . $ourPassID . '.pkpass">Click here to download the pass...</a></br></br>';
     echo '<a class="pass-path" trainNumVar="' . $viaRailAll[2] . '" href="../access/?passID=' . $ourPassID .'&i=' . $i . '">Click Here To Download Pass</a> </br></br>';
 
 
-
-
+//********************************************************************
+// SENDING NOTIFICATION EMAIL
+//********************************************************************
 if( strpos($_SERVER['HTTP_HOST'], '8888') > 0)
 {
     echo '</br> ...No email being sent, as we\'re on local... </br>';
@@ -146,34 +148,26 @@ else
 }   
 
 
-//adding to Firebase:
+//********************************************************************
+// WRITING REFERENCE TO PASS TO FIREBASE
+//********************************************************************
 $dataForCurl = ' {"passEmail": "'. $fromEmail . '", "passPath": "http://www.cantravel.co/access/?passID='. $ourPassID .'&i=' . $i . '", "passSentDate": "'. date('Y/m/d')  . '", "passTrainNum": "'. $passDetails[1] . '"}';
 
 echo put('https://via-porter.firebaseio.com/passes.json', $dataForCurl);
 
-
-
-
 } // closing huge for loop
+
 
 function put($url, $fields)
 {
     $post_field_string = http_build_query($fields, '', '&');
-    
     $ch = curl_init($url);
-
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
-    
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-    
     curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
-    
     $response = curl_exec($ch);
-    
     curl_close ($ch);
     
     return $response;
@@ -187,27 +181,6 @@ echo '</br>end of file, pass(s) in theory should be made...';
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="https://cdn.firebase.com/js/client/2.0.6/firebase.js"></script>
-
-    <script type="text/javascript">
-
-    var d = new Date();
-
-    // // Firebase Setup
-    // var myFirebaseRef = new Firebase("https://via-porter.firebaseio.com/");
-    // var passesRef = myFirebaseRef.child("passes");
-    // $('.pass-path').each(function() {
-    //     passesRef.push({
-    //       passPath: "http://www.cantravel.co" + $(this).attr("href").substring(2),
-    //       passEmail: $('.fromEmail').text(),
-    //       passTrainNum: $(this).attr("trainNumVar"),
-    //       passSentDate: d.toDateString().substring(4)
-    //     });
-    //     console.log('added pass path');
-    // });
-    </script>
-
     <title></title>
 </head>
 <body>
