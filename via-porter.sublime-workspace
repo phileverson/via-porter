@@ -4,12 +4,48 @@
 		"selected_items":
 		[
 			[
+				"bar",
+				"barcodesNames"
+			],
+			[
+				"n",
+				"maybeName"
+			],
+			[
 				"pass",
-				"passEmail"
+				"passCount"
+			],
+			[
+				"via",
+				"viaRailAll"
+			],
+			[
+				"nw",
+				"newBarCodeRead"
+			],
+			[
+				"from",
+				"fromEmail"
+			],
+			[
+				"vi",
+				"viaRailAll"
+			],
+			[
+				"l",
+				"lastName"
 			],
 			[
 				"new",
-				"newItemRow"
+				"newBarCodeRead"
+			],
+			[
+				"passA",
+				"passAddress"
+			],
+			[
+				"email",
+				"emailLookup"
 			],
 			[
 				"re",
@@ -17,10 +53,6 @@
 			],
 			[
 				"ema",
-				"emailLogin"
-			],
-			[
-				"email",
 				"emailLogin"
 			],
 			[
@@ -86,10 +118,6 @@
 			[
 				"fir",
 				"firstDepartureWord"
-			],
-			[
-				"via",
-				"viaRailToFromStringSingle"
 			],
 			[
 				"getpas",
@@ -308,10 +336,6 @@
 				"youTubePlayer"
 			],
 			[
-				"vi",
-				"videoPlayingATM"
-			],
-			[
 				"cr",
 				"currentVol"
 			],
@@ -471,38 +495,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "process/index.php",
-			"settings":
-			{
-				"buffer_size": 6584,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "process/test_data.html",
-			"settings":
-			{
-				"buffer_size": 1138,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "process/inbound_via_train_update.json",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "process/inbound.json",
-			"settings":
-			{
-				"buffer_size": 195900,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -537,23 +529,27 @@
 	"expanded_folders":
 	[
 		"/Users/phileverson/Repos/via-porter",
-		"/Users/phileverson/Repos/via-porter/process",
-		"/Users/phileverson/Repos/via-porter/process/_shared",
+		"/Users/phileverson/Repos/via-porter-ios",
 		"/Users/phileverson/Repos/via-porter-ios/www"
 	],
 	"file_history":
 	[
-		"/Users/phileverson/Repos/via-porter/index.php",
 		"/Users/phileverson/Repos/via-porter-ios/www/index.html",
-		"/Users/phileverson/Repos/via-porter/process/test_data.html",
+		"/Users/phileverson/Repos/via-porter/index.html",
 		"/Users/phileverson/Repos/via-porter/process/_shared/_createPass.php",
 		"/Users/phileverson/Repos/via-porter/process/index.php",
+		"/Users/phileverson/Repos/via-porter/index.php",
 		"/Users/phileverson/Repos/via-porter/process/inbound.json",
-		"/Users/phileverson/Repos/via-porter/process/_shared/_formatStrip.php",
-		"/Users/phileverson/Downloads/zxing-1992bd069eae74d0426af7bfec3901c3c54ff08d 2/zxingorg/pom.xml",
+		"/Users/phileverson/Repos/via-porter/process/test_data.html",
 		"/Users/phileverson/Repos/via-porter/process/_shared/_getStrips.php",
-		"/Users/phileverson/Repos/via-porter/process/_shared/_parseJson.php",
+		"/Users/phileverson/Repos/via-porter/process/_shared/_formatStrip.php",
 		"/Users/phileverson/Repos/via-porter/process/_shared/_saveJSON.php",
+		"/Users/phileverson/Repos/via-porter/process/_shared/_sendEmail.php",
+		"/Users/phileverson/Repos/via-porter/process/_shared/_parseJson.php",
+		"/Users/phileverson/Repos/via-porter-ios/www/styles/app.css",
+		"/Users/phileverson/Repos/via-porter-ios/config.xml",
+		"/Users/phileverson/Repos/via-porter/process/inbound_via_train_update.json",
+		"/Users/phileverson/Downloads/zxing-1992bd069eae74d0426af7bfec3901c3c54ff08d 2/zxingorg/pom.xml",
 		"/Users/phileverson/Repos/via-porter/process/pass-1423968094f806cc97.pkpass",
 		"/Users/phileverson/Repos/via-porter-ios/platforms/ios/www/index.html",
 		"/Users/phileverson/Repos/CanTravel-iOS-I1/www/templates/tabs.html",
@@ -567,9 +563,7 @@
 		"/Users/phileverson/Repos/CanTravel-iOS-I1/www/templates/tab-account.html",
 		"/Users/phileverson/Repos/via-porter-ios/platforms/ios/HelloCordova/HelloCordova-Info.plist",
 		"/Users/phileverson/Repos/via-porter-ios/platforms/ios/HelloCordova/config.xml",
-		"/Users/phileverson/Repos/via-porter/process/inbound_via_train_update.json",
 		"/Users/phileverson/Repos/via-porter/driving/inbound_parse.php",
-		"/Users/phileverson/Repos/via-porter/process/_shared/_sendEmail.php",
 		"/Users/phileverson/Repos/via-porter/access/index.php",
 		"/Users/phileverson/Repos/via-porter/app/PKPass.php",
 		"/Users/phileverson/Repos/via-porter/z-dev-stuff/SimonWaldherr-passkit/data/generic.json",
@@ -667,10 +661,7 @@
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/post-formats/homepage/format-work.php",
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/base/_typography.scss",
 		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/scss/-modules/_contact.scss",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/**old-code-that-may-be-of-use/OLD-source/contact-form.js",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/19a8d548b8847fe702c9070172383b5fa86117cb/_contact.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/.sass-cache/069c4339c967e95225b24c49d6c475b6042b0eca/_contact.scssc",
-		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/source/contact-form.js"
+		"/Users/phileverson/Repos/Klick Repos/klick-2015/wp-content/themes/klick-2015/library/js/**old-code-that-may-be-of-use/OLD-source/contact-form.js"
 	],
 	"find":
 	{
@@ -749,128 +740,6 @@
 	"groups":
 	[
 		{
-			"selected": 1,
-			"sheets":
-			[
-				{
-					"buffer": 0,
-					"file": "process/index.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6584,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5726,
-								5726
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1857.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "process/test_data.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1138,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								975,
-								954
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "process/inbound_via_train_update.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "process/inbound.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 195900,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								94,
-								94
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				}
-			]
-		},
-		{
 			"sheets":
 			[
 			]
@@ -893,18 +762,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.92799741979,
 			1.0
 		],
 		"rows":
@@ -929,6 +791,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"inb",
+				"via-porter/process/inbound.json"
+			],
 			[
 				"p",
 				"app/PKPass.php"
