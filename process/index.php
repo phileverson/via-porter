@@ -128,10 +128,10 @@ else
     //having the notification email sent...
     $sent = send_email(array(
         'to' => $fromEmail,
-        'from' => 'CanTravel <phil@phileverson.com>',
-        'subject' => 'CanTravel Pass: Train #' . $passDetails[1],
-        'text_body' => 'Click the link below to download your pass. http://grid.evertek.ca/deck4/via-porter/access/?passID=' . $ourPassID .'&i=' . $i . ' .',
-        'html_body' => '<html><body><a href="http://grid.evertek.ca/deck4/via-porter/access/?passID=' . $ourPassID .'&i=' . $i . '">Click Here To Download Pass</a> </br></br><em>CanTravel Team</em></body></html>'
+        'from' => 'CanTravel <pass@cantravel.co>',
+        'subject' => 'CanTravel - Train #' . $passDetails[1],
+        // 'text_body' => 'Click the link below to download your pass. http://cantravel.co/access/?passID=' . $ourPassID .'&i=' . $i . ' .',
+        'html_body' => '<html><body><h1>CanTravel - Train #' . $passDetails[1] . '</h1><p><a href="http://cantravel.co/access/?passID=' . $ourPassID .'&i=' . $i . '">Click here to download your personal iOS boarding pass.</a> </p><p><em>CanTravel Team</em></p></body></html>'
     ), $response, $http_code);
     // Did it send successfully?
     if( $sent ) {
