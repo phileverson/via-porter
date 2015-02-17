@@ -15,9 +15,9 @@ $trainNum = $_POST["passTrainNum"];
 $sent = send_email(array(
     'to' => $emailForResend,
     'from' => 'CanTravel <pass@cantravel.co>',
-    'subject' => 'CanTravel - Train #' . $trainNum,
+    'subject' => '[Resending] CanTravel Pass - Train ' . $trainNum,
     // 'text_body' => 'Click the link below to download your pass. http://cantravel.co/access/?passID=' . $ourPassID .'&i=' . $i . ' .',
-    'html_body' => '<html><body><h1>CanTravel - Train #' . $trainNum . '</h1><p><a href="' . $passURLRef . '">Click here to download your personal iOS boarding pass.</a> </p><p><em>CanTravel Team</em></p></body></html>'
+    'html_body' => '<html><body><h1>[Resending] CanTravel Pass - Train ' . $trainNum . '</h1><p><a href="' . $passURLRef . '">Click here to download your personal iOS boarding pass.</a></p><p>You\'re receiving this message because this pass was requested to be resent from the CanTravel mobile app. If you did not request this pass, please notify us via <a href="phil@cantravel.co">email</> ASAP.</p><p><em>CanTravel Team</em></p></body></html>'
 ), $response, $http_code);
 // Did it send successfully?
 if( $sent ) {
