@@ -15,7 +15,7 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
         'formatVersion'      => 1,
     	'authenticationToken' => '1234567890abcdef1234',
         'logoText'   => 'CanTravel - Train #' . $passDetails[1],
-        "organizationName" => "CanTravel Pass",
+        "organizationName" => "CanTravel",
         'description' => 'No afilication with VIA Rail, Porter Airlines, or any other transportation providers.',
         'passTypeIdentifier' => 'pass.via-porter', // 4. Set to yours
         'serialNumber'       => '123456',
@@ -28,44 +28,45 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
             'transitType' => 'PKTransitTypeTrain',
             'primaryFields' => array(
                 array(
-                    'key'   => '0',
+                    'key'   => 'originStation',
                     'label' => 'DEPARTING',
                     'value' => $passDetails[7]
                 ),
                 array(
-                    'key'   => '1',
+                    'key'   => 'destinationStation',
                     'label' => 'ARRIVING',
                     'value' => $passDetails[8]
-                ),
+                )
             ),
             // 'auxiliaryFields' => array(
             //     array(
             //         'key'   => 'originStationFullName',
             //         'label' => '',
-            //         'value' => $passDetails[3]
+            //         'value' => 'test'//$passDetails[3]
             //     ),
             //     array(
             //         'key'   => 'destinationStationFullName',
             //         'label' => '',
-            //         'value' => $passDetails[5]
+            //         'value' => 'test'//$passDetails[5]
             //     )
             // ),
-            'secondaryFields' => array(
+            // 'secondaryFields' => array(
+            'auxiliaryFields' => array(
                 array(
-                    'key'   => '0',
+                    'key'   => 'date',
                     'label' => 'DATE',
                     'value' => $passDetails[4],
                     'textAlignment' => 'PKTextAlignmentLeft'
                 ),
                 array(
-                    'key'   => '1',
+                    'key'   => 'time',
                     'label' => 'TIME',
                     'value' => $passDetails[11],
                     'textAlignment' => 'PKTextAlignmentLeft'
                 ),
 
                 array(
-                    'key'   => '2',
+                    'key'   => 'trainNum',
                     'label' => 'TRAIN',
                     'value' => $passDetails[1],
                     'textAlignment' => 'PKTextAlignmentRight'
@@ -85,7 +86,7 @@ function createPassFile($ourPassID, $i_passSet, $passDetails)
             ),
             'backFields' => array(
                 array(
-                    'key'   => '0',
+                    'key'   => 'passenger-name',
                     'label' => 'Passenger',
                     'value' => $passDetails[2]
                 ),
